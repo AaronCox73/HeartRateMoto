@@ -1,22 +1,23 @@
-// Zone 1	Very light	50–60%
-// Zone 2	Light	60–70%
-// Zone 3	Moderate	70–80%
-// Zone 4	Hard	80–90%
-// Zone 5	Maximum	90–100%
-
+// get access to submit button 
 let submit = document.getElementById('submitBtn')
+// get access to h2 for posting their heart rate
 let postEstimatedMaxHR = document.getElementById('estimatedHR')
 
-submit.addEventListener('click', function () {
-    let userAge = document.getElementById('userAge').value
-    let estimatedMaxHR = (220 - userAge)
-    postEstimatedMaxHR.innerHTML = estimatedMaxHR
-    localStorage.setItem('EstimatedMXHR', estimatedMaxHR)
-})
-
+// getting access to local storage that was set up on function line 15
 let estimatedMaxHR = localStorage.getItem('EstimatedMXHR')
 
 
+// function to get their estimated heart rate
+submit.addEventListener('click', function () {
+    let userAge = document.getElementById('userAge').value
+    let estimatedMaxHR = Math.round((208 - (.7 * userAge)))
+    postEstimatedMaxHR.innerHTML = estimatedMaxHR + ' BPM'
+    // add user's heart rate to local storge so we can access it later on a global scope
+    localStorage.setItem('EstimatedMXHR', estimatedMaxHR)
+})
+
+
+// function that will allow us to know what HR zone the user is in
 function usersHRZones(currentHR) {
     // Zone 1	Very light	50–60%
     // Zone 2	Light	60–70%
@@ -37,4 +38,4 @@ function usersHRZones(currentHR) {
 
 }
 
-usersHRZones(150)
+usersHRZones(175)

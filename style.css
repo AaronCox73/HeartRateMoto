@@ -22,3 +22,41 @@
     justify-content: center;
     font-weight: bold;
 }
+
+.heartBody {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.heart {
+    background-color: aquamarine;
+    position: relative;
+    height: 100px;
+    width: 100px;
+    transform: rotate(45deg);
+}
+
+.heart::after {
+    background: inherit;
+    border-radius: 50%;
+    position: absolute;
+    content: '';
+    top: -50%;
+    left: 0;
+    height: 100px;
+    width: 100px;
+}
+
+.heart::before {
+    background: inherit;
+    border-radius: 50%;
+    position: absolute;
+    content: '';
+    top: 0%;
+    left: -50%;
+    height: 100px;
+    width: 100px;
+}
