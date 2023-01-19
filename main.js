@@ -4,6 +4,7 @@ let submit = document.getElementById('submitBtn')
 let postEstimatedMaxHR = document.getElementById('estimatedHR')
 
 // getting access to local storage that was set up on function line 15
+
 let estimatedMaxHR = localStorage.getItem('EstimatedMXHR')
 
 let slider = document.getElementById("myRange");
@@ -54,4 +55,8 @@ slider.oninput = function () {
 
 slider.addEventListener('mouseup', (e) => {
     usersHRZones(slider.value)
+    document.getElementById('HRPercent').innerHTML = ((slider.value / estimatedMaxHR) * 100).toFixed(0) + '%'
+    console.log(slider.value)
+    console.log(estimatedMaxHR)
 });
+
