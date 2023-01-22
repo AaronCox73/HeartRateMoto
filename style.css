@@ -9,7 +9,7 @@
     height: 100%;
     background-color: green;
     transition: width 0.5s;
-    width: 10%;
+
 }
 
 .progess-bar-value {
@@ -37,7 +37,33 @@
     position: relative;
     height: 100px;
     width: 100px;
-    transform: rotate(45deg);
+    transform: rotate(45deg) scale(1);
+
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+@keyframes pulse {
+    0% {
+        transform: rotate(45deg) scale(1);
+    }
+
+    25% {
+        transform: rotate(45deg) scale(1.2);
+    }
+
+    50% {
+        transform: rotate(45deg) scale(0.9);
+    }
+
+    75% {
+        transform: rotate(45deg) scale(1.2);
+    }
+
+    100% {
+        transform: rotate(45deg) scale(1);
+
+
+    }
 }
 
 .heart::after {

@@ -5,6 +5,8 @@ let submit = document.getElementById('submitBtn')
 let postEstimatedMaxHR = document.getElementById('estimatedHR')
 
 
+
+
 let slider = document.getElementById("myRange");
 let output = document.getElementById("demo");
 
@@ -19,6 +21,7 @@ submit.addEventListener('click', function () {
 
     let slider = document.getElementById("myRange");
     slider.max = estimatedMaxHR
+
 
 
     // add user's heart rate to local storge so we can access it later on a global scope
@@ -52,13 +55,19 @@ submit.addEventListener('click', function () {
         output.innerHTML = this.value;
     }
 
+
+
+
     slider.addEventListener('mouseup', (e) => {
         usersHRZones(slider.value)
         let HRpercent = document.getElementById('HRPercent').innerHTML = ((slider.value / estimatedMaxHR) * 100).toFixed(0) + '%'
         document.querySelector('.progress-bar-fill').style.width = `${HRpercent}`
+        document.querySelector('.heart').style.animation = `pulse ${60 / slider.value}s linear infinite`
+        console.log(60 / slider.value)
     });
+
+
+
 })
-
-
 
 
